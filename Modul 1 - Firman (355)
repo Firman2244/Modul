@@ -1,0 +1,38 @@
+import java.util.Scanner;
+import java.time.*;
+
+public class Mod1 {
+    public static void main(String[] args) {
+
+        String nama;
+        String gender;
+        String age;
+
+        Scanner var = new Scanner(System.in);
+
+        //Input
+        System.out.print("\n//Input\n");
+        System.out.print("Masukkan Nama : ");
+        nama = var.nextLine();
+        System.out.print("Jenis Kelamin (L/P) : ");
+        gender = var.nextLine();
+        System.out.print("Tanggal Lahir (yyyy-mm-dd) : ");
+        age = var.nextLine();
+
+        //Output
+        System.out.println("\n//Output");
+        System.out.println("Nama : "+ nama);
+        System.out.print("Jenis Kelamin : ");
+        if (gender.equals("L")){
+            System.out.println("Laki-Laki");
+        } else if (gender.equals("P")){
+            System.out.println("Perempuan");
+        }else{
+            System.out.println("Gender Tidak Valid");
+        }
+        LocalDate DateOfBirth = LocalDate.parse(age);
+        LocalDate Sekarang = LocalDate.now();
+        Period waktu = Period.between(DateOfBirth,Sekarang);
+        System.out.println("Umur Anda : "+waktu.getYears()+" Tahun "+waktu.getMonths()+" Bulan");
+    }
+}
